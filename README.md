@@ -2,6 +2,32 @@
 
 A modern fitness application built with React Native and Expo, featuring a beautiful UI with gradient backgrounds and tab-based navigation.
 
+## 🍴 Forking the Repository
+
+1. Go to [https://github.com/amajety1/AI-Workout](https://github.com/amajety1/AI-Workout) in your web browser
+
+2. Click the "Fork" button in the top-right corner of the page
+   - This creates a copy of the repository in your GitHub account
+
+3. Once forked, you'll be redirected to your fork (e.g., https://github.com/YOUR_USERNAME/AI-Workout)
+
+4. Clone your forked repository to your local machine:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/AI-Workout.git
+   cd AI-Workout/FitnessApp
+   ```
+
+5. Optional but recommended - Add the original repository as "upstream" to keep your fork up to date:
+   ```bash
+   git remote add upstream https://github.com/amajety1/AI-Workout.git
+   ```
+
+6. Whenever you want to update your fork with the latest changes:
+   ```bash
+   git fetch upstream
+   git merge upstream/main
+   ```
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -11,20 +37,14 @@ A modern fitness application built with React Native and Expo, featuring a beaut
 
 ### Installation
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/amajety1/AI-Workout.git
-   cd AI-Workout/FitnessApp
-   ```
-
-2. Install dependencies
+1. After cloning the repository (see Forking instructions above), install dependencies:
    ```bash
    npm install
    ```
 
 ### Running the App
 
-#### Local Development
+#### Local Development (Same Network)
 1. Start the development server
    ```bash
    npx expo start
@@ -88,7 +108,7 @@ FitnessApp/
 
 ## 🤝 Contributing
 
-1. Fork the repository
+1. Fork the repository (see Forking instructions above)
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
@@ -117,6 +137,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
    # Remove node_modules and reinstall
    rm -rf node_modules
    npm install
+   ```
+
+4. **Fork not updating with original repository?**
+   ```bash
+   # Fetch and merge updates
+   git fetch upstream
+   git merge upstream/main
    ```
 
 For more help, check [Expo's documentation](https://docs.expo.dev/) or open an issue in this repository.
