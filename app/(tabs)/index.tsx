@@ -1,74 +1,124 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { StyleSheet, TouchableOpacity, StatusBar, View as RNView } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Text, View } from '@/components/Themed';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+export default function TabOneScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <RNView style={styles.container}>
+      <StatusBar barStyle="light-content" />
+      <LinearGradient
+        colors={['#000000', '#001F3F', '#006064']}
+        style={styles.gradient}
+      >
+        {/* Navbar */}
+        <View style={styles.navbar}>
+          <TouchableOpacity>
+            <MaterialCommunityIcons name="menu" size={24} color="white" />
+          </TouchableOpacity>
+          <View style={styles.navIcons}>
+            <TouchableOpacity style={styles.navIcon}>
+              <MaterialCommunityIcons name="bell" size={24} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.navIcon}>
+              <MaterialCommunityIcons name="share-variant" size={24} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.navIcon}>
+              <MaterialCommunityIcons name="magnify" size={24} color="white" />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* Main Content */}
+        <View style={styles.mainContent}>
+          <View style={styles.headerContainer}>
+            <Text style={styles.subtitle}>THE LONG WAIT IS OVER</Text>
+            <Text style={styles.title}>Your final fitness{'\n'}destination</Text>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={[styles.button, styles.signUpButton]}>
+              <Text style={[styles.buttonText, styles.signUpButtonText]}>Sign Up</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </LinearGradient>
+    </RNView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  container: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
+  gradient: {
+    flex: 1,
+  },
+  navbar: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: 8,
+    backgroundColor: 'transparent',
+    paddingHorizontal: 20,
+    paddingTop: 60,
+    paddingBottom: 20,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  navIcons: {
+    flexDirection: 'row',
+    backgroundColor: 'transparent',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  navIcon: {
+    marginLeft: 25,
+  },
+  mainContent: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+  },
+  headerContainer: {
+    backgroundColor: 'transparent',
+    marginBottom: 40,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#ffffff',
+    marginBottom: 10,
+    letterSpacing: 1,
+  },
+  title: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    lineHeight: 45,
+  },
+  buttonContainer: {
+    backgroundColor: 'transparent',
+    gap: 15,
+    marginTop: 40,
+  },
+  button: {
+    backgroundColor: '#ffffff',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  signUpButton: {
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor: '#ffffff',
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000000',
+  },
+  signUpButtonText: {
+    color: '#ffffff',
   },
 });

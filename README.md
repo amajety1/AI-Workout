@@ -1,50 +1,122 @@
-# Welcome to your Expo app 👋
+# AI Workout - Fitness App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern fitness application built with React Native and Expo, featuring a beautiful UI with gradient backgrounds and tab-based navigation.
 
-## Get started
+## 🚀 Quick Start
 
-1. Install dependencies
+### Prerequisites
+- Node.js (v16 or newer)
+- npm or yarn
+- Expo Go app on your mobile device ([iOS](https://apps.apple.com/app/apple-store/id982107779) | [Android](https://play.google.com/store/apps/details?id=host.exp.exponent))
 
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/amajety1/AI-Workout.git
+   cd AI-Workout/FitnessApp
+   ```
+
+2. Install dependencies
    ```bash
    npm install
    ```
 
-2. Start the app
+### Running the App
 
+#### Local Development
+1. Start the development server
    ```bash
-    npx expo start
+   npx expo start
+   ```
+2. You'll see a QR code in your terminal
+
+3. To view on your device:
+   - 📱 iOS: Open your iPhone camera and scan the QR code
+   - 🤖 Android: Open Expo Go app and scan the QR code
+
+#### Viewing from Different Network
+If you want to share the app with someone on a different network:
+
+1. Install ngrok globally (one-time setup)
+   ```bash
+   sudo npm install -g @expo/ngrok
    ```
 
-In the output, you'll find options to open the app in a
+2. Start the app with tunnel option
+   ```bash
+   npx expo start --tunnel
+   ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+3. Share the new QR code with others - they can scan it from anywhere!
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📱 Features
 
-## Get a fresh project
+- Modern, gradient-based UI design
+- Tab-based navigation with four main sections:
+  - Home (❤️)
+  - Search (🔍)
+  - History (⏰)
+  - Notifications (🔔)
+- Clean and intuitive user interface
+- Responsive design for various screen sizes
 
-When you're ready, run:
+## 🛠 Technical Stack
 
-```bash
-npm run reset-project
+- React Native
+- Expo
+- React Navigation
+- Expo Router for file-based routing
+- TypeScript for type safety
+
+## 📂 Project Structure
+
+```
+FitnessApp/
+├── app/                    # Main application code
+│   ├── (tabs)/            # Tab-based navigation screens
+│   │   ├── index.tsx      # Home screen
+│   │   ├── search.tsx     # Search screen
+│   │   ├── history.tsx    # History screen
+│   │   ├── notifications.tsx  # Notifications screen
+│   │   └── _layout.tsx    # Tab navigation configuration
+│   └── _layout.tsx        # Root layout
+├── components/            # Reusable components
+├── assets/               # Images, fonts, etc.
+└── package.json          # Dependencies and scripts
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🤝 Contributing
 
-## Learn more
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📝 License
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Join the community
+## 🤔 Troubleshooting
 
-Join our community of developers creating universal apps.
+### Common Issues
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. **QR Code not scanning?**
+   - Make sure your phone and computer are on the same network for local development
+   - Try using the tunnel option if on different networks
+
+2. **Metro bundler issues?**
+   ```bash
+   # Clear Metro cache
+   npx expo start --clear
+   ```
+
+3. **Dependencies issues?**
+   ```bash
+   # Remove node_modules and reinstall
+   rm -rf node_modules
+   npm install
+   ```
+
+For more help, check [Expo's documentation](https://docs.expo.dev/) or open an issue in this repository.
